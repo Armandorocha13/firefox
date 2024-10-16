@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html  lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionamento</title>
+    <title>Abrindo o WhatsApp...</title>
     <script>
-        // Redirecionamento instantâneo
-        window.location.href = 'https://wa.me/5545999298311?text=Olá%20gostaria%20de%20mais%20informações.';
+        // Número de telefone no formato internacional (sem o '+')
+        const numeroTelefone = '5511961631417'; // (21) 97180-9007
+
+        // Mensagem que será enviada
+        const mensagem = 'Olá, tenho interesse, poderia me dar mais informações?';
+
+        // Função para criar o link do WhatsApp
+        function gerarLinkWhatsApp(numero, texto) {
+            const url = `whatsapp://send?phone=${numero}&text=${encodeURIComponent(texto)}`;
+            return url;
+        }
+
+        // Redireciona o usuário automaticamente para o aplicativo do WhatsApp quando a página carrega
+        window.onload = function() {
+            const linkWhatsApp = gerarLinkWhatsApp(numeroTelefone, mensagem);
+            // Redireciona para o aplicativo do WhatsApp
+            window.location.href = linkWhatsApp;
+        };
     </script>
 </head>
-<body style="background-color: #fff; margin: 0;">
+<body>
 </body>
 </html>
